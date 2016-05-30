@@ -1,0 +1,29 @@
+{
+  "name": "mundialerp",
+  "description": "sistema de planejamento de recursos empresariais",
+  "main": "index.js",
+  "authors": [
+    "gilberto martini / pedro souza"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.5",
+    "angular": "^1.5.5",
+    "ngDraggable": "^0.1.8",
+    "bootstrap": "^3.3.6",
+    "angular-animate": "^1.5.5",
+    "roboto-fontface": "^0.4.5",
+    "smartmenus": "^1.0.0",
+    "angular-ui-grid": "^3.1.1",
+    "angular-resource": "^1.5.6"
+  }
+}

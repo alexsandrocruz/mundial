@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html data-ng-app="mundial">
+    <head>
+        <meta charset="utf-8"/>                       
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+        <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+        <link href="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+               
+        <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-fontface.css"/>
+
+        <!-- Bootstrap -->
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>    
+        <!-- Bootstrap -->
+        <!-- ANGULARJS -->
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script> 
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+        
+        <!-- ANGULARJS -->
+        
+           <!-- UI GRID -->
+        <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+        <script type="text/javascript" src="bower_components/angular-ui-grid/ui-grid.js"></script>      
+        <!-- UI GRID -->
+        
+        <script type="text/javascript" src="bower_components/smartmenus/dist/jquery.smartmenus.min.js" ></script>
+        <script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
+        
+        <link rel="stylesheet" href="site.css"/>                               
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+
+    <div class="container-fluid">
+
+      <!-- Navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/">Mundial</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <!-- Left nav -->
+          <ul class="nav navbar-nav">                    
+            <!--<li><a href="#">Link</a></li>-->
+            <li><a href="#">Cadastro<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                
+                
+                <li><a href="#/clientes">Clientes</a></li>    
+                <li><a href="#/fornecedores">Fornecedores</a></li>
+                <li><a href="#/fabricantes">Fabricantes</a></li>
+                <li class="divider"></li>
+        
+                <li><a href="#">Localização<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/continentes">Continentes</a></li>
+                    <li><a href="#/paises">País</a></li>
+                    <li><a href="#/estados">Estados</a></li>
+                    <li><a href="#/municipios">Municípios</a></li>
+                    <li><a href="#/bairros">Bairros</a></li>
+                    <li><a href="#/regioes">Regiões</a></li>
+                    <li><a href="#/logradouros">Tipos de Logradouros</a></li>                                                                                                                                          
+                  </ul>
+                </li>
+                 <li><a href="#">Frotas<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/transportadoras">Transportadoras</a></li>
+                    <li><a href="#/veiculos">Veículos</a></li>
+                    <li><a href="#/tipos-veiculos">Tipos de Veículo</a></li>
+                    <li><a href="#/proprietarios">Proprietários</a></li>
+                    <li><a href="#/tipos-combustivel">Tipos de Combustível</a></li>
+                    <li><a href="#/modelos-veiculos">Modelos de Veículos</a></li>
+                    <li><a href="#/cores-veiculos">Cores de Veículos</a></li>                                                                                                                                          
+                  </ul>
+                </li>
+                <li><a href="#">Organizações<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/empresas">Empresas</a></li>
+                    <li><a href="#/filiais">Filiais</a></li>
+                    <li><a href="#/grupos-empresas">Grupos de Empresas</a></li>                                                                                                                                                             
+                  </ul>
+                </li>
+                <li><a href="#">Vendas<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/enderecos-entregas">Endereços de Entrega</a></li>
+                    <li><a href="#/representantes">Representantes</a></li>                                                                                                                                                             
+                  </ul>
+                </li>
+                <li><a href="#">Contas a Pagar<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/favorecidos">Favorecidos</a></li>                                                                                                                                                                          
+                  </ul>
+                </li>
+                <li><a href="#">Contas a Receber<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/fontes-pagadoras">Fontes Pagadoras</a></li>                                                                                                                                                                          
+                  </ul>
+                </li>
+                <li><a href="#">Tesouraria<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/bancos">Bancos</a></li>
+                    <li><a href="#/tipos-contas">Tipos de Conta</a></li>
+                    <li><a href="#/agencias-bancarias">Agencias Bancárias</a></li>
+                    <li><a href="#/contas-bancarias">Contas Bancárias</a></li>                                                                                                                                                                          
+                  </ul>
+                </li>
+                <li><a href="#">Diversos<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/categorias">Categorias</a></li>
+                    <li><a href="#/centros-custos">Centros de Custo</a></li>
+                    <li><a href="#/formas-pagtos-recbtos">Formas de Pagamento/Recebimento</a></li>
+                    <li><a href="#/frequencias-pagamentos">Frequencia de Pagamento</a></li>
+                  </ul>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#/usuarios">Usuários</a></li>
+                <li><a href="#/grupos-usuarios">Grupos de Usuários</a></li>
+                <li><a href="#/relatorios">Relatórios</a></li>               
+              </ul>
+            </li>
+            <li><a href="#">Estoques<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/produtos">Produtos</a></li>
+                <li><a href="#/unidades-medidas">Unidades de Medida</a></li>
+                <li><a href="#/marcas">Marcas</a></li>
+                <li><a href="#/embalagens">Embalagens</a></li>
+                <li><a href="#/depositos">Depósitos</a></li>
+                <li><a href="#/tipos-marcas">Tipos de Marca</a></li>
+                <li><a href="#/tipos-movimentos">Tipos de Movimento</a></li>
+                <li><a href="#">Ligações<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/produtos-fabricantes">Produtos x Fabricantes</a></li>
+                    <li><a href="#/produtos-fornecedores">Produtos x Fornecedores</a></li>
+                    <li><a href="#/produtos-depositos">Produtos x Depósitos</a></li>
+                  </ul>
+                </li>
+                <li><a href="#/movimentacoes-entrada-saida">Movimentações de Entrada e Saída</a></li>
+                <li><a href="#/relatorios-movimentacoes">Relatórios</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Vendas<span class="caret"></span></a>
+              <ul class="dropdown-menu">               
+                <li><a href="#/pedidos">Pedidos</span></a></li>
+                <li><a href="#/relatorios-vendas">Relatórios</span></a></li>                               
+              </ul>
+            </li>
+            <li><a href="#">Financeiro<span class="caret"></span></a>
+              <ul class="dropdown-menu">               
+                <li><a href="#">Contas a Pagar<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/pagamentos">Pagamentos</a></li>                                                                                                                                                             
+                  </ul>
+                </li>
+                <li><a href="#">Contas a Receber<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/recebimentos">Recebimentos</a></li>                                                                                                                                                             
+                  </ul>
+                </li>
+                <li><a href="#">Tesouraria<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/emissoes">Emissões (Pagtos./Recbtos.)</a></li>
+                    <li><a href="#/extratos-bancarios">Extratos Bancários</a></li>
+                                                                                                               
+                  </ul>
+                </li>                                          
+                <li><a href="#/relatorios">Relatórios</a></li>  
+              </ul>
+            </li>
+            
+            <li><a href="#">Veículos<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/vistorias">Vistorias</a></li>
+                <li><a href="#/revisoes">Revisões</a></li>
+                <li><a href="#/infracoes">Infrações<span class="caret"></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Multas</a>
+                  </ul>
+                </li>               
+              </ul>             
+            </li>
+            <li><a href="#">Compras<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/solicitocoes">Solicitações</a></li>
+                <li><a href="#/sevicos">Serviços</a></li>          
+              </ul>
+            </li>
+          </ul>
+            
+          <!-- Right nav -->
+          <ul class="nav navbar-nav navbar-right">
+                      
+            <li><a href="#">Configurações <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">A sub menu <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>
+                    <li><a href="#">One more link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">A separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+      
+      <ng-view></ng-view>
+      
+      <script type="text/javascript" src="services/localizacao.js"></script>
+      
+      <script type="text/javascript" src="controllers/homeController.js"></script>
+      <script type="text/javascript" src="controllers/bairrosController.js"></script>
+      <script type="text/javascript" src="controllers/regioesController.js"></script>
+
+      
+      
+</html>

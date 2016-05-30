@@ -1,0 +1,23 @@
+{
+  "name": "mundialerp",
+  "version": "1.0.0",
+  "description": "sistema de planejamento de recursos empresariais",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gilberto martini / pedro souza",
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-bootstrap": "^1.3.3",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {}
+}
