@@ -16,7 +16,7 @@
         <!-- ANGULARJS -->
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script> 
         <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-        
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script> 
         <!-- ANGULARJS -->
         
            <!-- UI GRID -->
@@ -185,12 +185,13 @@
                   <ul class="dropdown-menu">
                     <li><a href="#">Multas</a>
                   </ul>
-                </li>               
+                </li>
+                <li><a href="#/pecas">Peças</a></li>
               </ul>             
             </li>
             <li><a href="#">Compras<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#/solicitocoes">Solicitações</a></li>
+                <li><a href="#/solicitacoes">Solicitações</a></li>
                 <li><a href="#/sevicos">Serviços</a></li>          
               </ul>
             </li>
@@ -226,10 +227,12 @@
       <ng-view></ng-view>
       
       <script type="text/javascript" src="services/localizacao.js"></script>
+      <script type="text/javascript" src="services/clientes.js"></script>
       
       <script type="text/javascript" src="controllers/homeController.js"></script>
       <script type="text/javascript" src="controllers/bairrosController.js"></script>
       <script type="text/javascript" src="controllers/regioesController.js"></script>
+      <script type="text/javascript" src="controllers/clientesController.js"></script>
 
       
       

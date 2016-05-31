@@ -1,20 +1,23 @@
 (function(){
     var mundial = angular.module("mundial");
     
-    mundial.controller("BairrosController",['$scope', 'Bairros', function($scope, Bairros){
-        
+    mundial.controller("BairrosController",['$scope', 'BairrosService', function($scope, BairrosService){
+        debugger;
         $scope.title = "Bairros";
-        $scope.gridBairros = { };
+        var arrayBairros = BairrosService.query();
         
-        Bairros.success(function(data, status, headers, config){
-            debugger;
+        $scope.gridBairros = {  
+            enableFiltering:true,
+            enableSorting:true,
+            columnDefs: [
+              {field: 'cod_bairro', displayName: 'Código'},
+              {field: 'nom_bairro', displayName: 'Nome', enableCellEdit:true},
+              {field: 'cod_estado', displayName: 'Estado'},
+              {field: 'cod_municipio', displayName: 'Município'},
+              {name: 'edit', displayName: 'Editar', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="edit(row.entity)" >Editar</button> '}
+            ],
+            data : arrayBairros        
             
-            $scope.gridBairros.data = data;
-            
-        }).error(function(data, status){
-            debugger;
-            
-            console.log(data, status);
-        });          
+        };
     }]);
 })();
