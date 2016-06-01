@@ -12,6 +12,8 @@
             enableFiltering : true,
             enableGridMenu : true,
             showGridFooter : true,
+            paginationPageSizes: [10,25, 50, 75,100,200],
+            paginationPageSize: 10,
             //showColumnFooter : true,
             fastWatch : true,
             

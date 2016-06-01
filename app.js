@@ -1,5 +1,5 @@
 (function(){
-    var mundial = angular.module('mundial', ['ngRoute', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ngAnimate','ngResource']);
+    var mundial = angular.module('mundial', ['ngRoute', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ui.grid.pagination','ngAnimate','ngResource']);
    
     mundial.config(['$routeProvider', function($routeProvider){
        
@@ -80,9 +80,7 @@
         
         configurarRotas($routeProvider, mundial.rotas);    
     }]);                  
-    
-    
-    
+
     function configurarRotas($routeProvider, rotas){
         rotas.forEach((r) =>{
             $routeProvider.when( r.caminho, { controller:r.controller, templateUrl:r.URL });
