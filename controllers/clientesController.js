@@ -1,9 +1,11 @@
 (function(){
     var mundial = angular.module("mundial");
     
-    mundial.controller("ClientesController",['$scope', 'ClientesService','uiGridConstants', 'uiGridGroupingConstants', function($scope, ClientesService,uiGridConstants,uiGridGroupingConstants){
+    mundial.controller("ClientesController",['$scope','$cookies', 'ClientesService','uiGridConstants', 'uiGridGroupingConstants', function($scope,$cookies, ClientesService,uiGridConstants,uiGridGroupingConstants){
         
+        debugger;
         $scope.title = "Clientes";
+        
         var arrayClientes = ClientesService.query();
         
         $scope.gridClientes = {
@@ -12,7 +14,7 @@
             enableFiltering : true,
             enableGridMenu : true,
             showGridFooter : true,
-            paginationPageSizes: [10,25, 50, 75,100,200],
+            paginationPageSizes: [10, 25, 50, 75, 100, 200],
             paginationPageSize: 10,
             //showColumnFooter : true,
             fastWatch : true,
@@ -46,7 +48,10 @@
             }
         };
         
+        debugger;
+        // recuperando o valor de um cookie
         
+        var usuario = $cookies.getObject('usuario');
         
         
         

@@ -1,5 +1,5 @@
 (function(){
-    var mundial = angular.module('mundial', ['ngRoute', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ui.grid.pagination','ngAnimate','ngResource']);
+    var mundial = angular.module('mundial', ['ngRoute','ngCookies', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ui.grid.pagination','ngAnimate','ngResource']);
    
     mundial.config(['$routeProvider', function($routeProvider){
        
