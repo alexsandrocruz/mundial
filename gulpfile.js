@@ -16,7 +16,7 @@ var p = {
     smartmenusCss : bowerPath + "smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css",
     robotoFontfaceCss : bowerPath + "roboto-fontface/css/roboto-fontface.css",
     uiGridCss : bowerPath + "angular-ui-grid/ui-grid.css",
-    
+    siteCss : "/site.css",
     jqueryJs : bowerPath +"jquery/dist/jquery.js",
     bootstrapJs : bowerPath + "bootstrap/dist/js/bootstrap.js", 
     angularJs : bowerPath + "angular/angular.js",
@@ -32,6 +32,8 @@ var p = {
     angularAnimateJs : bowerPath + "angular-animate/angular-animate.js",
     smartMenusBootstrapJs : bowerPath +"smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js",
     
+    controllers : "controllers/*Controller.js",
+    services : "services/*.js"
     
 };
 
@@ -50,7 +52,8 @@ gulp.task("min:js", function(){
         p.smartMenusJs,
         p.ngDraggableJs,
         p.angularAnimateJs,
-        p.smartMenusBootstrapJs
+        p.smartMenusBootstrapJs,
+        
     ])
     .pipe(concat(p.jsDest + "min/mundial.min.js"))
     .pipe(uglify())
@@ -62,13 +65,20 @@ gulp.task("min:css", function(){
         p.bootstrapCss,
         p.smartmenusCss,
         p.robotoFontfaceCss,
+        p.siteCss,
         p.uiGridCss 
     ])
-    .pipe(concat(p.cssDest +"min/mundial.min.css"))
+    .pipe(concat(p.cssDest + "min/mundial.min.css"))
     .pipe(cssmin())
     .pipe(gulp.dest((".")));
 });
 
+gulp.task("min:controllers", function(){
+    return gulp.src([p.controllers, p.services])
+               .pipe(concat("controllers/ctrl.min.js"))
+               .pipe(uglify())
+               .pipe(gulp.dest("."));
+});
 
 
-gulp.task("min", ["min:js", "min:css"]);
+gulp.task("min", ["min:js", "min:css","min:controllers"]);

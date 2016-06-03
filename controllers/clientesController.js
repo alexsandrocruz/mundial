@@ -5,16 +5,19 @@
     var mundial = angular.module("mundial");
     
     mundial.controller("ClientesController",['$scope','$cookies','$log','$uibModal', 'ClientesService','uiGridConstants', 'uiGridGroupingConstants', function($scope, $cookies, $log, $uibModal, ClientesService,uiGridConstants,uiGridGroupingConstants){
-        debugger;
         
         $scope.title = "Clientes";
         
-        var arrayClientes = ClientesService.query();
-        
+        var arrayClientes = ClientesService.query(function(){
+            debugger;
+            console.log("chegay!");
+        });
+        /*
         var umCliente = ClientesService.get({ id: 1 }, function() {
             debugger;
             console.log(umCliente);
         }); // get() returns a single entry
+        */
         
          var appScopeModal = {
 

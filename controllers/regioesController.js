@@ -3,7 +3,7 @@
     
     mundial.controller("RegioesController",['$scope', function($scope){
         
-        $scope.title = "Regioes que esta no controller";
+        $scope.title = "Regioes do controller";
         
     }]);
 })();
