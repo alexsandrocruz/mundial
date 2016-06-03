@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html data-ng-app="mundial">
     <head>
-        <meta charset="utf-8"/>                       
+        <meta charset="utf-8"/>     
+        <!--
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+        
         <link href="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
         <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-fontface.css"/>
 
-        <!-- Bootstrap -->
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>    
-        <!-- Bootstrap -->
         
-        <!-- ANGULARJS -->
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>    
+        
         <script type="text/javascript" src="bower_components/angular/angular.js"></script> 
         <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
         <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script> 
         <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script> 
         <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> 
-        <!-- ANGULARJS -->
         
-        <!-- UI GRID -->
         <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
         <script type="text/javascript" src="bower_components/angular-ui-grid/ui-grid.js"></script>      
-        <!-- UI GRID -->
         
-        <!-- PDFMAKE -->
         <script type="text/javascript" src="bower_components/pdfmake/build/pdfmake.js"></script>
         <script type="text/javascript" src="bower_components/pdfmake/build/vfs_fonts.js"></script>      
-        <!-- PDFMAKE -->
+        
         
         <script type="text/javascript" src="bower_components/smartmenus/dist/jquery.smartmenus.js" ></script>
-        <!--<script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>-->
+        <script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>
         <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
         <script type="text/javascript" src="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
+        -->
         
+        <link rel="stylesheet" href="css/min/mundial.min.css"/>
         <link rel="stylesheet" href="site.css"/>
+        
+        <script type="text/javascript" src="js/min/mundial.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </head>
     <body>
@@ -156,8 +155,8 @@
             </li>
             <li><a href="#">Vendas<span class="caret"></span></a>
               <ul class="dropdown-menu">               
-                <li><a href="#/pedidos">Pedidos</span></a></li>
-                <li><a href="#/relatorios-vendas">Relatórios</span></a></li>                               
+                <li><a href="#/pedidos">Pedidos</a></li>
+                <li><a href="#/relatorios-vendas">Relatórios</a></li>                               
               </ul>
             </li>
             <li><a href="#">Financeiro<span class="caret"></span></a>
@@ -232,14 +231,17 @@
       </div>
       
       <ng-view></ng-view>
+      
       <script type="text/javascript" src="services/localizacao.js"></script>
       <script type="text/javascript" src="services/clientes.js"></script>
+      
       <script type="text/javascript" src="controllers/homeController.js"></script>
       <script type="text/javascript" src="controllers/bairrosController.js"></script>
+      <script type="text/javascript" src="controllers/clientesController.js"></script>
+      <!--
       <script type="text/javascript" src="controllers/bancosController.js"></script>
       <script type="text/javascript" src="controllers/categoriasController.js"></script>
       <script type="text/javascript" src="controllers/centroscustosController.js"></script>
-      <script type="text/javascript" src="controllers/clientesController.js"></script>
       <script type="text/javascript" src="controllers/contasbacariasController.js"></script>
       <script type="text/javascript" src="controllers/continentesController.js"></script>
       <script type="text/javascript" src="controllers/coresveiculosController.js"></script>
@@ -290,5 +292,5 @@
       <script type="text/javascript" src="controllers/unidadesmedidasController.js"></script>
       <script type="text/javascript" src="controllers/usuariosController.js"></script>
       <script type="text/javascript" src="controllers/veiculosController.js"></script>
-      <script type="text/javascript" src="controllers/vistoriasveiculosController.js"></script>
+      <script type="text/javascript" src="controllers/vistoriasveiculosController.js"></script>-->
 </html>

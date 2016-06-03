@@ -4,12 +4,12 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
     
     
-var bowerPath = '/bower_components/';
+var bowerPath = 'bower_components/';
 
 var p = {
     
-    jsDest : "./js/",
-    cssDest : "./css/",
+    jsDest : "js/",
+    cssDest : "css/",
     
     
     bootstrapCss : bowerPath + "bootstrap/dist/css/bootstrap.css",
@@ -54,7 +54,7 @@ gulp.task("min:js", function(){
     ])
     .pipe(concat(p.jsDest + "min/mundial.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest("./js"));
+    .pipe(gulp.dest("."));
 });
 
 gulp.task("min:css", function(){
@@ -66,7 +66,7 @@ gulp.task("min:css", function(){
     ])
     .pipe(concat(p.cssDest +"min/mundial.min.css"))
     .pipe(cssmin())
-    .pipe(gulp.dest(("./css")));
+    .pipe(gulp.dest((".")));
 });
 
 
