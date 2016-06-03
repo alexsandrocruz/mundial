@@ -7,14 +7,41 @@
         <h3>Bairros</h3>
         <p>Gerenciar o cadastro de bairros</p>
         <p>
-            <a href="#" class="btn btn-primary" role="button">OK</a> 
-            <a href="#/" class="btn btn-danger" role="button">Cancelar</a>
+            <a href="#" class="btn btn-primary" role="button">Saiba Mais</a> 
+            <a href="#/" class="btn btn-danger" role="button">Ajuda</a>
         </p>
       </div>
     </div>
   </div> 
   <div class="col-sm-6 col-md-8" ui-i18n="pt-br">   
-    <div id="gridBairros" ui-grid="gridBairros" class="gridPadrao"></div>
+    <div id="gridBairros" 
+         ui-grid="gridBairros" 
+         ui-grid-resize-columns 
+         ui-grid-move-columns 
+         ui-grid-pinning 
+         ui-grid-selection 
+         ui-grid-exporter 
+         ui-grid-auto-resize 
+         class="gridPadrao">
+    </div>
   </div>
 </div>
 
+<!-- MODAL DE BAIRRO -->
+<script type="text/ng-template" id="ngTemplate/detalheBairro.html">
+	<div class="modal-header">
+	    <h4>Bairro</h4>
+	</div>
+	<div class="modal-body">
+    <!--<span style="font-weight:bold;">Nome: </span> <span>{{selectedRow.nom_bairro}}</span>-->
+    <label for="txt_nom_bairro">Nome:</label>
+    <input type="text" id="txt_nom_bairro"  ng-model="selectedRow.nom_bairro" value="selectedRow.nom_bairro" />
+    <br/>
+    
+	</div>
+	<div class="modal-footer">
+	    <button class="btn btn-info btnCustom" ng-click="ok()">Salvar</button>
+	    <button class="btn btn-primary btnCustom" ng-click="cancel()">Cancelar</button>
+	</div>
+</script>
+<!-- FIM MODAL DE BAIRRO -->

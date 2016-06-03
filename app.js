@@ -1,8 +1,63 @@
 (function(){
-    var mundial = angular.module('mundial', ['ngRoute','ngCookies', 'ui.grid', 'ui.grid.cellNav', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning', 'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter', 'ui.grid.importer', 'ui.grid.grouping','ui.grid.pagination','ngAnimate','ngResource']);
+    /*global angular*/
+    angular.defaultGridConfig = {
+        
+            showFooter: true,
+            enableSorting: true,
+            multiSelect: false,
+            enableRowSelection: true,
+            enableSelectAll: false,
+            enableRowHeaderSelection: false,
+            selectionRowHeaderWidth: 35,  
+            noUnselect: true,
+            enableFiltering : true,
+            enableGridMenu : true,
+            enablePaging:true,
+            showGridFooter : true,
+            paginationPageSizes: [10, 25, 50, 75, 100, 200],
+            paginationPageSize: 10,
+            showColumnFooter : true,
+            fastWatch : true,
+            rowTemplate: "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
+            
+            enableSelectAll: true,
+            exporterCsvFilename: 'myFile.csv',
+            exporterPdfDefaultStyle: {fontSize: 9},
+            exporterPdfTableStyle: {margin: [30, 30, 30, 30]},
+            exporterPdfTableHeaderStyle: {fontSize: 10, bold: true, italics: true, color: 'red'},
+            exporterPdfHeader: { text: "My Header", style: 'headerStyle' },
+            exporterPdfFooter: function ( currentPage, pageCount ) {
+              return { text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle' };
+            },
+            exporterPdfCustomFormatter: function ( docDefinition ) {
+              docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+              docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+              return docDefinition;
+            },
+            exporterPdfOrientation: 'portrait',
+            exporterPdfPageSize: 'LETTER',
+            exporterPdfMaxGridWidth: 500,
+            exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location"))
+            /*onRegisterApi: function(gridApi){
+              $scope.gridApi = gridApi;
+            }*/
+    };
+    
+    var mundial = angular.module('mundial', [
+        'ngRoute', 'ngCookies', 'ui.grid', 'ui.grid.cellNav',
+        'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning',
+        'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter',
+        'ui.grid.importer', 'ui.grid.grouping', 'ui.grid.pagination',
+        'ngAnimate', 'ui.bootstrap', 'ngResource'
+    ]);
+  
    
-    mundial.config(['$routeProvider', function($routeProvider){
-       
+    mundial.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider){
+        $httpProvider.defaults.headers.common = {};
+        $httpProvider.defaults.headers.post = {};
+        $httpProvider.defaults.headers.put = {};
+        $httpProvider.defaults.headers.patch = {};
+        
         mundial.rotas = [
             { caminho:'/', controller:'HomeController', URL:'views/home.html' },
             
@@ -75,12 +130,13 @@
             { caminho:'/vistorias', controller:'VistoriasController', URL:'views/veiculos/vistorias.html' },
             { caminho:'/revisoes', controller:'RevisoesController', URL:'views/veiculos/revisoes.html' },
             { caminho:'/multas', controller:'MultasController', URL:'views/veiculos/infracoes/multas.html' },
-            { caminho:'/pecas', controller:'PecasController', URL:'views/veiculos/pecas.html' },
+            { caminho:'/pecas', controller:'PecasController', URL:'views/veiculos/pecas.html' }
         ];
         
         configurarRotas($routeProvider, mundial.rotas);    
-    }]);                  
-
+    }]);// fim do config
+    
+    
     function configurarRotas($routeProvider, rotas){
         rotas.forEach((r) =>{
             $routeProvider.when( r.caminho, { controller:r.controller, templateUrl:r.URL });

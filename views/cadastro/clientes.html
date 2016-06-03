@@ -14,6 +14,37 @@
     </div>
   </div> 
   <div class="col-sm-6 col-md-8" ui-i18n="pt-br">   
-    <div id="gridClientes" ui-grid="gridClientes" ui-grid-pagination ui-grid-resize-columns ui-grid-edit ui-grid-move-columns ui-grid-pinning ui-grid-selection ui-grid-exporter ui-grid-auto-resize class="gridPadrao"></div>
+    <div id="gridClientes" 
+         ui-grid="gridClientes" 
+         ui-grid-resize-columns 
+         ui-grid-move-columns 
+         ui-grid-pinning 
+         ui-grid-selection 
+         ui-grid-exporter 
+         ui-grid-auto-resize 
+         class="gridPadrao">
+    </div>
+    <!-- --
   </div>
 </div>
+
+<!-- MODAL DE CLIENTES -->
+<script type="text/ng-template" id="ngTemplate/detalheCliente.html">
+	<div class="modal-header">
+	    <h4>Cliente</h4>
+	</div>
+	<div class="modal-body">
+	  <span style="font-weight:bold;">Código: </span> <span>{{selectedRow.cod_cliente}}</span>
+    <br/>
+    
+    <label for="txt_codigo">Nome:</label>
+    <input type="text" id="txt_codigo" name="txt_codigo" ng-model="selectedRow.nom_cliente" />
+    
+    
+	</div>
+	<div class="modal-footer">
+	    <button class="btn btn-primary btnCustom" ng-click="atualizar(selectedRow)">Salvar</button>
+	    <button class="btn btn-primary btnCustom" ng-click="cancel()">Cancelar</button>
+	</div>
+</script>
+<!-- FIM MODAL DE CLIENTES -->

@@ -2,41 +2,40 @@
 <html data-ng-app="mundial">
     <head>
         <meta charset="utf-8"/>                       
-        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-        
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
         <!-- SmartMenus jQuery Bootstrap Addon CSS -->
         <link href="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
-               
         <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-fontface.css"/>
 
         <!-- Bootstrap -->
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>    
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>    
         <!-- Bootstrap -->
         
         <!-- ANGULARJS -->
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script> 
-        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script> 
-        <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script> 
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script> 
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script> 
+        <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script> 
+        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> 
         <!-- ANGULARJS -->
         
-           <!-- UI GRID -->
+        <!-- UI GRID -->
         <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
         <script type="text/javascript" src="bower_components/angular-ui-grid/ui-grid.js"></script>      
         <!-- UI GRID -->
         
-        <!-- PDFMAKE-->
+        <!-- PDFMAKE -->
         <script type="text/javascript" src="bower_components/pdfmake/build/pdfmake.js"></script>
         <script type="text/javascript" src="bower_components/pdfmake/build/vfs_fonts.js"></script>      
-        <!-- PDFMAKE-->
+        <!-- PDFMAKE -->
         
-        <script type="text/javascript" src="bower_components/smartmenus/dist/jquery.smartmenus.min.js" ></script>
-        <script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>
-        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/smartmenus/dist/jquery.smartmenus.js" ></script>
+        <!--<script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>-->
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
         <script type="text/javascript" src="bower_components/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
         
-        <link rel="stylesheet" href="site.css"/>                               
+        <link rel="stylesheet" href="site.css"/>
         <script type="text/javascript" src="app.js"></script>
     </head>
     <body>
@@ -202,6 +201,7 @@
                 <li><a href="#/sevicos">Serviços</a></li>          
               </ul>
             </li>
+            <li><a href="#/sair">Sair</a></li>
           </ul>
             
           <!-- Right nav -->
@@ -232,15 +232,63 @@
       </div>
       
       <ng-view></ng-view>
-      
       <script type="text/javascript" src="services/localizacao.js"></script>
       <script type="text/javascript" src="services/clientes.js"></script>
-      
       <script type="text/javascript" src="controllers/homeController.js"></script>
       <script type="text/javascript" src="controllers/bairrosController.js"></script>
-      <script type="text/javascript" src="controllers/regioesController.js"></script>
+      <script type="text/javascript" src="controllers/bancosController.js"></script>
+      <script type="text/javascript" src="controllers/categoriasController.js"></script>
+      <script type="text/javascript" src="controllers/centroscustosController.js"></script>
       <script type="text/javascript" src="controllers/clientesController.js"></script>
-
-      
-      
+      <script type="text/javascript" src="controllers/contasbacariasController.js"></script>
+      <script type="text/javascript" src="controllers/continentesController.js"></script>
+      <script type="text/javascript" src="controllers/coresveiculosController.js"></script>
+      <script type="text/javascript" src="controllers/depositosprodutosController.js"></script>
+      <script type="text/javascript" src="controllers/despesasController.js"></script>
+      <script type="text/javascript" src="controllers/embalagensController.js"></script>
+      <script type="text/javascript" src="controllers/empresasController.js"></script>
+      <script type="text/javascript" src="controllers/enderecosentregaController.js"></script>
+      <script type="text/javascript" src="controllers/estadosController.js"></script>
+      <script type="text/javascript" src="controllers/fabricantesController.js"></script>
+      <script type="text/javascript" src="controllers/favorecidosController.js"></script>
+      <script type="text/javascript" src="controllers/filiaisController.js"></script>
+      <script type="text/javascript" src="controllers/fontespagadorasController.js"></script>
+      <script type="text/javascript" src="controllers/formaspagamentoController.js"></script>
+      <script type="text/javascript" src="controllers/fornecedoresController.js"></script>
+      <script type="text/javascript" src="controllers/frequenciaspagamentosController.js"></script>
+      <script type="text/javascript" src="controllers/gruposempresasController.js"></script>
+      <script type="text/javascript" src="controllers/gruposusuariosController.js"></script>
+      <script type="text/javascript" src="controllers/itensservicosController.js"></script>
+      <script type="text/javascript" src="controllers/marcasController.js"></script>
+      <script type="text/javascript" src="controllers/menusController.js"></script>
+      <script type="text/javascript" src="controllers/modelosveiculosController.js"></script>
+      <script type="text/javascript" src="controllers/movimentacoesprodutosController.js"></script>
+      <script type="text/javascript" src="controllers/municipiosController.js"></script>
+      <script type="text/javascript" src="controllers/operadoresController.js"></script>
+      <script type="text/javascript" src="controllers/paisesController.js"></script>
+      <script type="text/javascript" src="controllers/pedidosController.js"></script>
+      <script type="text/javascript" src="controllers/produtosController.js"></script>
+      <script type="text/javascript" src="controllers/produtosdepositosController.js"></script>
+      <script type="text/javascript" src="controllers/produtosfabricantesController.js"></script>
+      <script type="text/javascript" src="controllers/produtosfornecedoresController.js"></script>
+      <script type="text/javascript" src="controllers/proprietariosveiculosController.js"></script>
+      <script type="text/javascript" src="controllers/receitasController.js"></script>
+      <script type="text/javascript" src="controllers/regioesController.js"></script>
+      <script type="text/javascript" src="controllers/representantesController.js"></script>
+      <script type="text/javascript" src="controllers/servicosController.js"></script>
+      <script type="text/javascript" src="controllers/solicitacoesController.js"></script>
+      <script type="text/javascript" src="controllers/tesourariasController.js"></script>
+      <script type="text/javascript" src="controllers/tiposcategoriasController.js"></script>
+      <script type="text/javascript" src="controllers/tiposcombustiveisController.js"></script>
+      <script type="text/javascript" src="controllers/tiposcontasController.js"></script>
+      <script type="text/javascript" src="controllers/tiposlancamentosController.js"></script>
+      <script type="text/javascript" src="controllers/tiposlogradourosController.js"></script>
+      <script type="text/javascript" src="controllers/tiposmarcasController.js"></script>
+      <script type="text/javascript" src="controllers/tiposmovimentosController.js"></script>
+      <script type="text/javascript" src="controllers/tiposveiculosController.js"></script>
+      <script type="text/javascript" src="controllers/transportadorasController.js"></script>
+      <script type="text/javascript" src="controllers/unidadesmedidasController.js"></script>
+      <script type="text/javascript" src="controllers/usuariosController.js"></script>
+      <script type="text/javascript" src="controllers/veiculosController.js"></script>
+      <script type="text/javascript" src="controllers/vistoriasveiculosController.js"></script>
 </html>
