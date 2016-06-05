@@ -59,14 +59,11 @@
         $httpProvider.defaults.headers.patch = {};
         
         mundial.rotas = [
-            { caminho:'/', controller:'LoginController', URL:'views/login.html' },
-            { caminho:'/home', controller:'HomeController', URL:'views/home.html' },
+            { caminho:'/', controller:'HomeController', URL:'views/home.html' },
+            { caminho:'/login', controller:'LoginController', URL:'views/login.html' },
             { caminho:'/clientes', controller:'ClientesController', URL:'views/cadastro/clientes.html' },
-            
             { caminho:'/fornecedores', controller:'FornecedoresController', URL:'views/cadastro/fornecedores.html' },
-            
             { caminho:'/fabricantes', controller:'FabricantesController', URL:'views/cadastro/fabricantes.html' },
-            
             { caminho:'/continentes', controller:'ContinentesController', URL:'views/cadastro/localizacao/continentes.html' },
             { caminho:'/paises', controller:'PaisesController', URL:'views/cadastro/localizacao/paises.html' },
             { caminho:'/estados', controller:'EstadosController', URL:'views/cadastro/localizacao/estados.html' },

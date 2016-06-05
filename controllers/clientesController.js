@@ -9,7 +9,7 @@
         debugger;
         var usuario = $cookies.getObject('usuario');
         if (!usuario) {
-            $location.url('/');
+            $location.url('/login');
         }
         
         $scope.cli = {};
