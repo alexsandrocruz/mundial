@@ -59,8 +59,8 @@
         $httpProvider.defaults.headers.patch = {};
         
         mundial.rotas = [
-            { caminho:'/', controller:'HomeController', URL:'views/home.html' },
-            
+            { caminho:'/', controller:'LoginController', URL:'views/login.html' },
+            { caminho:'/home', controller:'HomeController', URL:'views/home.html' },
             { caminho:'/clientes', controller:'ClientesController', URL:'views/cadastro/clientes.html' },
             
             { caminho:'/fornecedores', controller:'FornecedoresController', URL:'views/cadastro/fornecedores.html' },

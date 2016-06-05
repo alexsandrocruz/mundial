@@ -1,0 +1,645 @@
+<div class="row"> <!-- SEGUNDA LINHA -->
+
+    <div class="well bs-component" style="margin-top: 100px">
+        <form id="frmRomaneio" class="form-horizontal" method="POST" action="/Romaneios/Home/Detalhe" data-sitrom="A" data-codrom="200027" data-relatorios="/Romaneios/Home/GerarLinksRelatorio" data-itens="/Romaneios/Home/ItensRomaneio" data-paged-itens="/Romaneios/Home/ItensRomaneioPaginados" data-usucon="901" data-usuatual="901">
+         
+           <!-- AÇÕES -->
+           <div class="panel panel-default">
+                <div class="panel-heading">
+                    Cadastro de Clientes
+                </div>       
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3 id="idLegenda">Cliente Nº {{ cliente.cod_cliente }}</h3>
+                        </div>
+                        <div class="col-md-2">
+                            <h3> {{ cliente.sit_cliente }} </h3>
+                        </div>
+                        <div class="col-md-1">
+                        <span class="input-group-btn">
+                            <button id="btnImprimirCliente" type="button" class="btn btn-default btn-raised btn-fab" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="IMPRIMIR CLIENTE">
+                                <span class="glyphicon glyphicon-print"></span>
+                            </button>
+                         </span>
+                        </div>
+                        <div class="col-md-1">
+                        <span class="input-group-btn">
+                            <button id="btnInativarCliente" type="button" class="btn btn-info btn-raised btn-fab" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="INATIVAR CLIENTE" >
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </button>
+        
+                            <button id="btnReativarCliente" type="button" class="btn btn-info btn-raised btn-fab" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="REATIVAR CLIENTE" style="display: none;">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </button>
+                         </span>
+                        </div>               
+                        <div class="col-md-1">
+                         <span class="input-group-btn">                   
+                            <button id="btnExcluirCliente" type="button" class="btn btn-warning btn-raised btn-fab" data-toggle="tooltip" data-placement="bottom" data-original-title="EXCLUIR CLIENTE" >                           
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                         </span>
+                        </div>
+                    </div>
+                </div>       
+           </div>
+           <!-- AÇÕES -->
+        
+        
+          <fieldset>
+            <legend>Cadastro de Cliente</legend>
+        
+            <div class="row"> <!-- LINHA 1a -->
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_cliente" class="col-md-2 control-label label-floating">Código do Cliente</label>
+                
+                        <div class="col-md-12">           
+                            <input type="text"
+                                   id="cod_cliente" 
+                                   name="cod_cliente" 
+                                   data-ng-model="cli.cod_cliente"
+                                   autocomplete="off"
+                                   required="required" 
+                                   class="form-control ui-autocomplete-input">
+                        </div>       
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="nom_cliente" class="col-md-2 control-label">Nome</label>
+            
+                        <div class="col-md-12">                
+                            <input type="text"
+                                   data-ng-model="cli.nom_cliente"
+                                   class="form-control ui-autocomplete-input" 
+                                   required="required"  
+                                   value="GILBERTO MARTINI MADEIRA" 
+                                   autocomplete="off">
+                        </div>            
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="nom_apelido_cliente" class="col-md-2 control-label">Apelido</label>
+            
+                         <div class="col-md-12">                
+                            <input type="text"
+                                   id="nom_apelido_cliente"
+                                   data-ng-model="cli.nom_apelido_cliente"
+                                   class="form-control ui-autocomplete-input" 
+                                   required="required"  
+                                   value="GILBERTO" 
+                                   autocomplete="off">
+                        </div>       
+                    </div>
+                </div>
+            </div><!-- FIM DA LINHA 1a -->
+            <div class="row"><!-- LINHA 2a -->
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_grupo_empresa" class="col-md-2 control-label">
+                            Grupo de Empresas</label>
+                        <div class="col-md-12">               
+                            <select id="cod_grupo_empresa"
+                                    class="form-control hasDatepicker"
+                                    data-ng-model="cli.cod_grupo_empresa"><!-- pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"                        readonly="readonly"                        title="DD/MM/AAAA"                         value="25/02/2016"-->
+                                    <option value="1">Grupo de empresa 1</option>
+                                    <option value="2">Grupo de empresa 2</option>
+                            </select>                        
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_tipo_cliente" class="col-md-2 control-label">Tipo</label>
+            
+                        <div class="col-md-10">               
+                            <select type="text" 
+                                    id="cod_tipo_cliente" 
+                                    data-ng-model="cli.cod_tipo_cliente"
+                                    class="form-control">
+                                    <option value="F">PESSOA FÍSICA</option>
+                                    <option value="J">PESSOA JURÍDICA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_cnpj" class="col-md-2 control-label">CNPJ</label>
+                
+                        <div class="col-md-12">           
+                            <input class="form-control" 
+                                   id="num_cnpj" 
+                                   name="num_cnpj" 
+                                   data-ng-model="cli.num_cnpj"
+                                   required="required" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_cpf" class="col-md-2 control-label">CPF</label>
+                
+                        <div class="col-md-12">           
+                            <input class="form-control" 
+                                   id="num_cpf" 
+                                   name="num_cpf" 
+                                   data-ng-model="cli.num_cpf"
+                                   required="required" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_inscricao_estadual" class="col-md-2 control-label">Inscrição Estadual</label>
+                
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_inscricao_estadual" 
+                                   data-ng-model="cli.num_inscricao_estadual"
+                                   maxlength="12" 
+                                   name="num_inscricao_estadual" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        
+                        <label for="num_inscricao_municipal" class="col-md-2 control-label">Inscrição Municipal</label>
+                
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_inscricao_municipal" 
+                                   data-ng-model="cli.num_inscricao_municipal"
+                                   maxlength="12" 
+                                   name="num_inscricao_municipal" 
+                                   type="text">
+                        </div>
+                
+                        <!--<div class="col-md-10">
+                            <div class="radio radio-primary">
+                                <label>                   
+                                    <input checked="checked" id="TipoRomaneio" name="TipoRomaneio" type="radio" value="E"><span class="circle"></span><span class="check"></span>
+                                    Entrada
+                                </label>
+                            </div>
+                            <div class="radio radio-primary">
+                                <label>
+                                    
+                                    <input id="TipoRomaneio" name="TipoRomaneio" type="radio" value="S"><span class="circle"></span><span class="check"></span>
+                                    Saída
+                                </label>
+                            </div>             
+                        </div>-->
+                    </div>
+                </div>
+        
+            </div><!-- FIM DA LINHA 2a -->
+            <div class="row"><!-- LINHA 3a -->
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_telefone1" class="col-md-2 control-label">Telefone 1</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_telefone1" 
+                                   data-ng-model="cli.num_telefone1"
+                                   maxlength="12" 
+                                   name="num_telefone1" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_telefone2" class="col-md-2 control-label">Telefone 2</label>
+            
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="num_telefone2" 
+                               data-ng-model="cli.num_telefone2"
+                               maxlength="12" 
+                               name="num_telefone2" 
+                               type="text">
+                    </div>
+                    <span class="material-input"></span></div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_celular1" class="col-md-2 control-label">Celular 1</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_celular1" 
+                                   data-ng-model="cli.num_celular1"
+                                   maxlength="12" 
+                                   name="num_celular1" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_celular2" class="col-md-2 control-label">Celular 2</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_celular2" 
+                                   data-ng-model="cli.num_celular2"
+                                   maxlength="12" 
+                                   name="num_celular2" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+           </div><!-- FIM DA LINHA 3a -->
+           
+           <div class="row"><!-- LINHA 4a -->
+            
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="dsc_email_cliente" class="col-md-2 control-label">Email Cliente</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="dsc_email_cliente" 
+                               data-ng-model="cli.dsc_email_cliente"
+                               maxlength="12" 
+                               name="dsc_email_cliente" 
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="cod_regiao" class="col-md-2 control-label">Região</label>
+        
+                <div class="col-md-12">            
+                    <input class="form-control" 
+                           id="cod_regiao" 
+                           data-ng-model="cli.cod_regiao"
+                           maxlength="12" 
+                           name="cod_regiao" 
+                           type="text">
+                </div>
+                <span class="material-input"></span></div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="cod_continente" class="col-md-2 control-label">Continente</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="cod_continente" 
+                               data-ng-model="cli.cod_continente"
+                               maxlength="12" 
+                               name="cod_continente" 
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="cod_pais" class="col-md-2 control-label">País</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="cod_pais" 
+                               data-ng-model="cli.cod_pais"
+                               maxlength="12" 
+                               name="cod_pais"
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            
+           </div><!-- FIM DA LINHA 4a -->
+           
+           <div class="row"><!-- LINHA 5a -->
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="cod_estado" class="col-md-2 control-label">Estado</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="cod_estado" 
+                               data-ng-model="cli.cod_estado"
+                               maxlength="12" 
+                               name="cod_estado" 
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="dsc_sigla_estado" class="col-md-2 control-label">UF</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="dsc_sigla_estado" 
+                               data-ng-model="cli.dsc_sigla_estado"
+                               maxlength="12" 
+                               name="dsc_sigla_estado" 
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="cod_municipio" class="col-md-2 control-label">Código Município</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="cod_municipio" 
+                               data-ng-model="cli.cod_municipio"
+                               maxlength="12" 
+                               name="cod_municipio" 
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2 col-xs-12">
+                <div class="form-group label-floating">
+                    <label for="nom_municipio" class="col-md-2 control-label">Nome Município</label>
+        
+                    <div class="col-md-12">            
+                        <input class="form-control" 
+                               id="nom_municipio" 
+                               data-ng-model="cli.nom_municipio"
+                               maxlength="12" 
+                               name="nom_municipio"
+                               type="text">
+                    </div>
+                </div>
+            </div>
+            
+            
+           </div><!-- FIM DA LINHA 5a -->
+           <div class="row"><!-- LINHA 6a -->
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_bairro" class="col-md-2 control-label">Código Bairro</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="cod_bairro" 
+                                   data-ng-model="cli.cod_bairro"
+                                   maxlength="12" 
+                                   name="cod_bairro" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_tipo_logradouro" class="col-md-2 control-label">Tipo Logradouro</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="cod_tipo_logradouro" 
+                                   data-ng-model="cli.cod_tipo_logradouro"
+                                   maxlength="12" 
+                                   name="cod_tipo_logradouro" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dsc_endereco_cliente" class="col-md-2 control-label"> Descrição Endereço </label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dsc_endereco_cliente" 
+                                   data-ng-model="cli.dsc_endereco_cliente"
+                                   maxlength="12" 
+                                   name="dsc_endereco_cliente" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="num_endereco_cliente" class="col-md-2 control-label"> Número Endereço</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="num_endereco_cliente" 
+                                   data-ng-model="cli.num_endereco_cliente"
+                                   maxlength="12" 
+                                   name="num_endereco_cliente"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+           </div><!-- FIM DA LINHA 6a -->
+           
+           <div class="row"><!-- LINHA 7a -->
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dsc_compl_endereco_cliente" class="col-md-2 control-label">dsc_compl_endereco_cliente</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dsc_compl_endereco_cliente" 
+                                   data-ng-model="cli.dsc_compl_endereco_cliente"
+                                   maxlength="12" 
+                                   name="dsc_compl_endereco_cliente" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dsc_cep_endereco_cliente" class="col-md-2 control-label"> dsc_cep_endereco_cliente</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dsc_cep_endereco_cliente" 
+                                   data-ng-model="cli.dsc_cep_endereco_cliente"
+                                   maxlength="12" 
+                                   name="dsc_cep_endereco_cliente" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dat_ultima_compra" class="col-md-2 control-label">  dat_ultima_compra </label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dat_ultima_compra" 
+                                   data-ng-model="cli.dat_ultima_compra"
+                                   maxlength="12" 
+                                   name="dat_ultima_compra" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="sit_cliente" class="col-md-2 control-label"> sit_cliente</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="sit_cliente" 
+                                   data-ng-model="cli.sit_cliente"
+                                   maxlength="12" 
+                                   name="sit_cliente"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+           </div><!-- FIM DA LINHA 7a -->
+           <div class="row"><!-- LINHA 8a -->
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dsc_info_compl_cliente" class="col-md-2 control-label">dsc_info_compl_cliente</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dsc_info_compl_cliente" 
+                                   data-ng-model="cli.dsc_info_compl_cliente"
+                                   maxlength="12" 
+                                   name="dsc_info_compl_cliente" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_usuario_cadastro" class="col-md-2 control-label"> cod_usuario_cadastro</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="cod_usuario_cadastro" 
+                                   data-ng-model="cli.cod_usuario_cadastro"
+                                   maxlength="12" 
+                                   name="cod_usuario_cadastro" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dat_cadastro" class="col-md-2 control-label">  dat_cadastro </label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dat_cadastro" 
+                                   data-ng-model="cli.dat_cadastro"
+                                   maxlength="12" 
+                                   name="dat_cadastro" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_usuario_alteracao" class="col-md-2 control-label"> cod_usuario_alteracao</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="cod_usuario_alteracao" 
+                                   data-ng-model="cli.cod_usuario_alteracao"
+                                   maxlength="12" 
+                                   name="cod_usuario_alteracao"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+           </div><!-- FIM DA LINHA 8a -->
+           
+           <div class="row"> <!-- LINHA 9a -->
+            
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dat_alteracao" class="col-md-2 control-label"> dat_alteracao</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dat_alteracao" 
+                                   data-ng-model="cli.dat_alteracao"
+                                   maxlength="12" 
+                                   name="dat_alteracao" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="cod_usuario_exclusao" class="col-md-2 control-label"> cod_usuario_exclusao</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="cod_usuario_exclusao" 
+                                   data-ng-model="cli.cod_usuario_exclusao"
+                                   maxlength="12" 
+                                   name="cod_usuario_exclusao" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="dat_exclusao" class="col-md-2 control-label"> dat_exclusao  </label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="dat_exclusao" 
+                                   data-ng-model="cli.dat_exclusao"
+                                   maxlength="12" 
+                                   name="dat_exclusao" 
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 col-xs-12">
+                    <div class="form-group label-floating">
+                        <label for="reg_excluido" class="col-md-2 control-label"> reg_excluido</label>
+            
+                        <div class="col-md-12">            
+                            <input class="form-control" 
+                                   id="reg_excluido" 
+                                   data-ng-model="cli.reg_excluido"
+                                   maxlength="12" 
+                                   name="reg_excluido"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+           </div><!-- FIM DA LINHA 9a -->
+         </fieldset>
+        </form>
+    </div> <!-- FIM DO WELL -->
+</div> <!-- FIM DA SEGUNDA LINHA -->

@@ -1,25 +1,44 @@
-(function(){
-    
+(function () {
+    "use strict";
     /*global angular*/
     
     var mundial = angular.module("mundial");
     
-    mundial.controller("ClientesController",['$scope','$cookies','$log','$uibModal', 'ClientesService','uiGridConstants', 'uiGridGroupingConstants', function($scope, $cookies, $log, $uibModal, ClientesService,uiGridConstants,uiGridGroupingConstants){
+    mundial.controller("ClientesController", ['$scope', '$cookies', '$log', '$uibModal', 'ClientesService', 'uiGridConstants', 'uiGridGroupingConstants', '$location','$http', function ($scope, $cookies, $log, $uibModal, ClientesService, uiGridConstants, uiGridGroupingConstants, $location, $http) {
         
+        debugger;
+        var usuario = $cookies.getObject('usuario');
+        if (!usuario) {
+            $location.url('/');
+        }
+        
+        $scope.cli = {};
         $scope.title = "Clientes";
+                       
+        $scope.salvar = function (cli) {
+            
+           ClientesService.save(cli, function onSuccess(d){
+               debugger;
+               $scope.cli = {};
+               
+           }, function onError(e){
+               
+               console.log(e);
+           });        
+        };
         
-        var arrayClientes = ClientesService.query(function(){
-            debugger;
-            console.log("chegay!");
-        });
-        /*
+        /*var arrayClientes = ClientesService.query(function(){
+            
+            console.log("");
+        /});
+        
         var umCliente = ClientesService.get({ id: 1 }, function() {
             debugger;
             console.log(umCliente);
         }); // get() returns a single entry
         */
         
-         var appScopeModal = {
+        /* var appScopeModal = {
 
             showInfo : function(row) {
                 
@@ -43,7 +62,8 @@
         
         $scope.gridClientes = angular.defaultGridConfig;
         $scope.gridClientes.appScopeProvider = appScopeModal;
-        $scope.gridClientes.data = arrayClientes;
+        //$scope.gridClientes.data = arrayClientes;
+        $scope.gridClientes.data = [];
         $scope.gridClientes.columnDefs =  [
               //{field: 'cod_cliente', displayName: 'Código', enableCellEdit:false, aggregationType: uiGridConstants.aggregationTypes.max, hidden:true},
               {field: 'nom_cliente', displayName: 'Nome'},
@@ -53,6 +73,7 @@
               {field: 'sit_cliente', enableCellEdit:true, displayName: 'Situação'},
               //{name: 'edit', displayName: 'Editar', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="editar(row.entity)" >Editar</button> '}
         ];
+        */
         
 /*
                                     cod_cliente = c.cod_cliente,
@@ -65,14 +86,12 @@
         
         
         // recuperando o valor de um cookie
-        var usuario = $cookies.getObject('usuario');
+        
         
         
     }]); //fim da definição do controller
-    
-    mundial.controller('DetalheClienteController', 
-    ['$scope', '$uibModal', '$uibModalInstance', '$filter', '$interval', 'selectedRow', 'ClientesService',
-        function ($scope, $uibModal, $uibModalInstance, $filter, $interval, selectedRow, ClientesService) {
+    /*
+    mundial.controller('DetalheClienteController', ['$scope', '$uibModal', '$uibModalInstance', '$filter', '$interval', 'selectedRow', 'ClientesService', function ($scope, $uibModal, $uibModalInstance, $filter, $interval, selectedRow, ClientesService) {
     
             $scope.selectedRow = selectedRow;
     
@@ -97,5 +116,5 @@
             };
         }
     ]); // fim da definição do controller de detalhe
-    
+    */
 })();

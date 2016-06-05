@@ -1,18 +1,14 @@
 (function(){
     var mundial = angular.module("mundial");
     
-    mundial.controller("HomeController",['$scope', '$cookies', function($scope, $cookies){
-        debugger;
-        $scope.mensagem = "Bem Vindo";
+    mundial.controller("HomeController",['$scope', '$cookies','$location', function($scope, $cookies,$location){
         
+        var usuario = $cookies.getObject('usuario');
+        if (!usuario.autenticado) {
+            $location.url('/');
+        }
         
-        var usuario = {
-            cod_usuario : 901,
-            nom_usuario : "Gilberto Martini"
-        };
-        
-        // Definindo um cookie
-        $cookies.putObject('usuario', usuario);
+        $scope.mensagem = "Bem Vindo " + usuario.nom_usuario;
         
         
     }]);

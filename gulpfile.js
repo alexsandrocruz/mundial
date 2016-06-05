@@ -76,7 +76,7 @@ gulp.task("min:css", function(){
 gulp.task("min:controllers", function(){
     return gulp.src([p.controllers, p.services])
                .pipe(concat("controllers/ctrl.min.js"))
-               .pipe(uglify())
+               //.pipe(uglify())
                .pipe(gulp.dest("."));
 });
 
