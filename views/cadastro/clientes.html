@@ -1,8 +1,9 @@
 
 <div style="margin-top:40px"></div>
+
 <div class="row"><!-- PRIMEIRA LINHA -->
-  
-  <div class="col-xs-12 col-sm-4 col-md-2"> <!-- PRIMEIRA COLUNA -->
+    
+  <!--<div class="col-xs-12 col-sm-4 col-md-2"> <!-- PRIMEIRA COLUNA 
     <div class="thumbnail">
       <img ng-src="img/customers.png" alt="Clientes">
       <div class="caption">
@@ -14,9 +15,9 @@
         </p>
       </div>
     </div>
-  </div> <!-- FIM DA PRIMEIRA COLUNA -->
+  </div>  FIM DA PRIMEIRA COLUNA -->
   
-  <div class=" col-xs-12 col-sm-8 col-md-10" ui-i18n="pt-br">   <!-- SEGUNDA COLUNA -->
+  <div class=" col-xs-12 col-sm-10 col-md-12" ui-i18n="pt-br">   <!-- SEGUNDA COLUNA -->
         <div class="row"> <!-- primeira LINHA da segunda coluna -->
     
         <div class="well bs-component">
@@ -33,10 +34,10 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-7">
-                                <h3 id="idLegenda">Cliente Nº {{ cliente.cod_cliente }}</h3>
+                                <h3 id="idLegenda">Cliente Nº {{ cli.cod_cliente }}</h3>
                             </div>
                             <div class="col-md-2">
-                                <h3> {{ cliente.sit_cliente }} </h3>
+                                <h3> {{ cli.sit_cliente }} </h3>
                             </div>
                             <div class="col-md-1">
                             <span class="input-group-btn">
@@ -58,8 +59,8 @@
                             </div>               
                             <div class="col-md-1">
                              <span class="input-group-btn">                   
-                                <button id="btnExcluirCliente" type="button" class="btn btn-warning btn-raised btn-fab" data-toggle="tooltip" data-placement="bottom" data-original-title="EXCLUIR CLIENTE" >                           
-                                    <span class="glyphicon glyphicon-trash"></span>
+                                <button id="btnExcluirCliente" type="button" class="btn btn-warning btn-raised btn-fab" ng-click="limpar()" data-placement="bottom" data-original-title="EXCLUIR CLIENTE" >                           
+                                    <span class="glyphicon glyphicon-erase"></span>
                                 </button>
                              </span>
                             </div>
@@ -69,12 +70,12 @@
                <!-- AÇÕES -->
             
                 <div class="row"> <!-- LINHA 1a -->
-                    <div class="col-md-4 col-xs-12">
+                    <!--<div class="col-md-4 col-xs-12">
                         <div class="form-group label-floating">
                             <label for="cod_cliente" class="col-md-2 control-label label-floating">Código</label>
                     
                             <div class="col-md-12">           
-                                <input type="text"
+                                <input type="hidden"
                                        id="cod_cliente" 
                                        name="cod_cliente" 
                                        data-ng-model="cli.cod_cliente"
@@ -83,8 +84,14 @@
                                        class="form-control ui-autocomplete-input">
                             </div>       
                         </div>
-                    </div>
-                
+                    </div>-->
+                <input type="hidden"
+                       id="cod_cliente" 
+                       name="cod_cliente" 
+                       data-ng-model="cli.cod_cliente"
+                       autocomplete="off"
+                       required="required" 
+                       class="form-control ui-autocomplete-input">
                     <div class="col-md-4 col-xs-12">
                         <div class="form-group label-floating">
                             <label for="nom_cliente" class="col-md-2 control-label">Nome</label>
@@ -92,13 +99,22 @@
                             <div class="col-md-12">                
                                 <input type="text"
                                        data-ng-model="cli.nom_cliente"
-                                       class="form-control ui-autocomplete-input" 
-                                       required="required"  
-                                       value="GILBERTO MARTINI MADEIRA" 
-                                       autocomplete="off">
+                                       class="form-control" 
+                                       placeholder="Digite o nome do cliente para pesquisar"
+                                       uib-typeahead="cliente for cliente in obterClientes($viewValue)"
+                                       typeahead-on-select="obterClientePorId(cli.nom_cliente)"
+                                       required="required"
+                                       typeahead-loading="buscando" 
+                                       typeahead-no-results="noResults" class="form-control">
+                                <i ng-show="buscando" class="glyphicon glyphicon-refresh"></i>
+                                <div ng-show="noResults">
+                                  <i class="glyphicon glyphicon-remove"></i> Nenhum Cliente Encontrado
+                                </div>
+                                       
                             </div>            
                         </div>
                     </div>
+                    
                 
                     <div class="col-md-4 col-xs-12">
                         <div class="form-group label-floating">
@@ -568,20 +584,32 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-2 col-xs-12">
-                        <div class="form-group label-floating">
-                            <label for="dat_cadastro" class="col-md-2 control-label">  dat_cadastro </label>
-                
-                            <div class="col-md-12">            
-                                <input class="form-control" 
-                                       id="dat_cadastro" 
-                                       data-ng-model="cli.dat_cadastro"
-                                       maxlength="12" 
-                                       name="dat_cadastro" 
-                                       type="text">
-                            </div>
-                        </div>
-                    </div>
+                        
+                        <p class="input-group">
+                          <label for="dat_cadastro" class="col-md-2 control-label"> dat_cadastro</label>
+                          <input type="text" 
+                                     id="dat_cadastro" 
+                                     data-ng-model="cli.dat_cadastro"
+                                     name="dat_cadastro" 
+                                     class="form-control" 
+                                     uib-datepicker-popup="{{formato}}" 
+                                     is-open="popup1.opened" 
+                                     datepicker-options="dateOptions" 
+                                     ng-required="true" 
+                                     close-text="Close" 
+                                     readonly="readonly"
+                                     alt-input-formats="altInputFormats" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-info" ng-click="open1()" style="margin-top: 32px">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                          </span>
+                        </p>
+                      </div>
+                    
+                    
                     
                     <div class="col-md-2 col-xs-12">
                         <div class="form-group label-floating">
@@ -643,6 +671,7 @@
                                        type="text">
                             </div>
                         </div>
+                        
                     </div>
                     
                     <div class="col-md-2 col-xs-12">

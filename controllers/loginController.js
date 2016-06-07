@@ -1,41 +1,30 @@
 (function(){
     var mundial = angular.module("mundial");
     
-    mundial.controller("LoginController",['$scope', '$cookies','$location', function($scope, $cookies,$location){
+    mundial.controller("LoginController",['$scope', '$cookies','$location','LoginService', function($scope, $cookies,$location,LoginService){
         debugger;
-        $scope.mensagem = "Bem Vindo";
+        $scope.mensagem = "Bem Vindo";            
         
-        $scope.usuario = {};
         
-        $scope.autenticar = function(){
+        
+        $scope.autenticar = function() {
+            debugger;
             
             // submeter login e senha para a tabela de usuários, e preencher o objeto com o usuário que veio da API
+            var loginService = new LoginService({dsc_login_usuario: $scope.login, dsc_senha_usuario:$scope.senha });
             
-            debugger;
-            if($scope.login === "admin" && $scope.senha === "admin"){
-            
-                $scope.usuario = {
-                    cod_usuario : 3,
-                    nom_usuario : "Gilberto Martini",
-                    autenticado : true
-                };
-                // Definindo um cookie
-                $cookies.putObject('usuario', $scope.usuario);
+            loginService.$autenticar((d)=> {
+                debugger;
+                console.log(d);
                 
-                $location.url('/');
-                
-            }else{
-                alert("Usuário não autorizado");
-                $cookies.remove('usuario');
-                $location.url('/login');
-            }    
-        };
-        
-        
-        
-        
-        
-        
-        
+                if(d.cod_usuario !== undefined && d.nom_usuario !== undefined){
+                    $cookies.putObject('usuario', d);
+                    $location.url('/');
+                }else{
+                    $cookies.remove('usuario', d);
+                    $location.url('/login');
+                }
+            });        
+        };//fim de $scope.autenticar    
     }]);
 })();

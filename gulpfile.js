@@ -12,7 +12,7 @@ var p = {
     cssDest : "css/",
     
     
-    bootstrapCss : bowerPath + "bootstrap/dist/css/bootstrap.css",
+    bootstrapCss : bowerPath + "bootstrap/dist/css/bootstrap.min.css",
     smartmenusCss : bowerPath + "smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css",
     robotoFontfaceCss : bowerPath + "roboto-fontface/css/roboto-fontface.css",
     uiGridCss : bowerPath + "angular-ui-grid/ui-grid.css",
@@ -52,8 +52,7 @@ gulp.task("min:js", function(){
         p.smartMenusJs,
         p.ngDraggableJs,
         p.angularAnimateJs,
-        p.smartMenusBootstrapJs,
-        
+        p.smartMenusBootstrapJs
     ])
     .pipe(concat(p.jsDest + "min/mundial.min.js"))
     .pipe(uglify())

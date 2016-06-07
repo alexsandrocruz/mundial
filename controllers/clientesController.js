@@ -12,20 +12,101 @@
             $location.url('/login');
         }
         
-        $scope.cli = {};
+        $scope.cli = {}; // objeto da tela -> VIEW MODEL
         $scope.title = "Clientes";
+        $scope.clientes = [];
+        
+        /* CRUD -----------------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        
+        $scope.obterClientePorId = function(item){
+            debugger;
+            // buscar um cliente
+            var partesTextbox = item.split('-');
+            var cod_cliente = Number(partesTextbox.reverse()[0].trim());
+            
+            return $http.get('//mundialerp.gear.host/api/clientes/', {
+              params: {
+                id: cod_cliente 
+              }
+            }).then(function(response){ // essa função é invocada quando a resposta da request chega.
+                debugger;
+                // aqui eu uso o retorno da api para montar um objeto cliente e o angular popula a tela automaticamente.
+                $scope.cli = response.data; 
+            });
+        };
                        
         $scope.salvar = function (cli) {
             
            ClientesService.save(cli, function onSuccess(d){
                debugger;
                $scope.cli = {};
-               
            }, function onError(e){
-               
                console.log(e);
-           });        
+           });
         };
+        
+        /*FIM DO CRUD -----------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        
+        
+        /* EVENTOS E COMPONENTES DA TELA ----------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        $scope.formatos = ['dd/MM/yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.formato = $scope.formatos[0];
+        
+        $scope.dateOptions = {
+            //dateDisabled: disabled,
+            formatYear: 'yyyy',
+            maxDate: new Date(2020, 5, 22),
+            //minDate: new Date(),
+            startingDay: 1
+        };
+        // Disable weekend selection
+        function disabled(data) {
+            var date = data.date, mode = data.mode;
+            return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+        }
+        
+        $scope.open1 = function() {
+            $scope.popup1.opened = true;
+        };
+        
+        $scope.popup1 = {
+            opened: false
+        };
+        
+        $scope.altInputFormats = ['M!/d!/yyyy'];
+        
+        // autocompletar (aqui chamado de typeahead)
+        $scope.obterClientes = function(val) {
+            debugger;
+            return $http.get('//mundialerp.gear.host/api/clientes/', {
+              params: {
+                nom_cliente: val
+              }
+            }).then(function(response){
+                debugger;
+                $scope.clientes = response.data;
+                
+                return response.data.map(function(c){
+                    return c.nom_cliente + " - " + c.cod_cliente;
+                });
+            });
+        };
+        
+        $scope.limpar = function(){
+            $scope.cli = {};
+        };
+        
+        /* FIM DA DEFINIÇÃO DE EVENTOS E COMPONENTES DA TELA --------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        /* ----------------------------------------------------------------------------------------*/
+        
+        
         
         /*var arrayClientes = ClientesService.query(function(){
             

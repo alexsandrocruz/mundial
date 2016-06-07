@@ -1,5 +1,13 @@
 (function(){
     /*global angular*/
+    var mundial = angular.module('mundial', [
+        'ngRoute', 'ngCookies', 'ui.grid', 'ui.grid.cellNav',
+        'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning',
+        'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter',
+        'ui.grid.importer', 'ui.grid.grouping', 'ui.grid.pagination',
+        'ngAnimate', 'ui.bootstrap', 'ngResource'
+    ]);
+    
     angular.defaultGridConfig = {
         
             showFooter: true,
@@ -43,15 +51,9 @@
             }*/
     };
     
-    var mundial = angular.module('mundial', [
-        'ngRoute', 'ngCookies', 'ui.grid', 'ui.grid.cellNav',
-        'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.pinning',
-        'ui.grid.selection', 'ui.grid.moveColumns', 'ui.grid.exporter',
-        'ui.grid.importer', 'ui.grid.grouping', 'ui.grid.pagination',
-        'ngAnimate', 'ui.bootstrap', 'ngResource'
-    ]);
+    
   
-   
+    
     mundial.config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider){
         $httpProvider.defaults.headers.common = {};
         $httpProvider.defaults.headers.post = {};
@@ -61,6 +63,7 @@
         mundial.rotas = [
             { caminho:'/', controller:'HomeController', URL:'views/home.html' },
             { caminho:'/login', controller:'LoginController', URL:'views/login.html' },
+            { caminho:'/sair', controller:'LoginController', URL:'views/login.html' },
             { caminho:'/clientes', controller:'ClientesController', URL:'views/cadastro/clientes.html' },
             { caminho:'/fornecedores', controller:'FornecedoresController', URL:'views/cadastro/fornecedores.html' },
             { caminho:'/fabricantes', controller:'FabricantesController', URL:'views/cadastro/fabricantes.html' },
@@ -128,11 +131,11 @@
             { caminho:'/revisoes', controller:'RevisoesController', URL:'views/veiculos/revisoes.html' },
             { caminho:'/multas', controller:'MultasController', URL:'views/veiculos/infracoes/multas.html' },
             { caminho:'/pecas', controller:'PecasController', URL:'views/veiculos/pecas.html' }
+            
         ];
         
         configurarRotas($routeProvider, mundial.rotas);    
     }]);// fim do config
-    
     
     function configurarRotas($routeProvider, rotas){
         rotas.forEach((r) =>{
