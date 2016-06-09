@@ -41,3 +41,22 @@ BEGIN
 	select * from tbl_usuarios where dsc_login_usuario = login and dsc_senha_usuario = md5(senha);
 END $$
 DELIMITER ;
+
+
+To apply different classes when different expressions evaluate to true:
+
+<div ng-class="{class1 : expression1, class2 : expression2}">
+    Hello World!
+</div>
+To apply multiple classes when an expression holds true:
+
+<!-- notice expression1 used twice -->
+<div ng-class="{class1 : expression1, class2 : expression1}">
+    Hello World!
+</div>
+or quite simply:
+
+<div ng-class="{'class1 class2' : expression1}">
+    Hello World!
+</div>
+Notice the single quotes surrounding css classes.

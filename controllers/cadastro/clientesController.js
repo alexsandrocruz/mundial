@@ -13,7 +13,7 @@
         }
         
         $scope.cli = {}; // objeto da tela -> VIEW MODEL
-        $scope.title = "Clientes";
+        
         $scope.clientes = [];
         
         /* CRUD -----------------------------------------------------------------------------------*/
@@ -81,12 +81,14 @@
         
         $scope.altInputFormats = ['M!/d!/yyyy'];
         
+        
+        
         // autocompletar (aqui chamado de typeahead)
         $scope.obterClientes = function(val) {
             debugger;
             return $http.get('//mundialerp.gear.host/api/clientes/', {
               params: {
-                nom_cliente: val
+                nom_cliente: val //startswith
               }
             }).then(function(response){
                 debugger;

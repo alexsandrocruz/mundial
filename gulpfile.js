@@ -11,7 +11,6 @@ var p = {
     jsDest : "js/",
     cssDest : "css/",
     
-    
     bootstrapCss : bowerPath + "bootstrap/dist/css/bootstrap.min.css",
     smartmenusCss : bowerPath + "smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css",
     robotoFontfaceCss : bowerPath + "roboto-fontface/css/roboto-fontface.css",
@@ -33,6 +32,7 @@ var p = {
     smartMenusBootstrapJs : bowerPath +"smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js",
     
     controllers : "controllers/*Controller.js",
+    controllersCadastro : "controllers/cadastro/*Controller.js",
     services : "services/*.js"
     
 };
@@ -73,7 +73,10 @@ gulp.task("min:css", function(){
 });
 
 gulp.task("min:controllers", function(){
-    return gulp.src([p.controllers, p.services])
+    return gulp.src([p.controllers,
+                     p.controllersCadastro,
+                     p.services
+              ])
                .pipe(concat("controllers/ctrl.min.js"))
                //.pipe(uglify())
                .pipe(gulp.dest("."));
